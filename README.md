@@ -1,103 +1,89 @@
-# ⚠️ Importante!!!
-Você pode escolher qualquer um dos desafios para desenvolver. Sinta-se à vontade para começar pelo desafio que mais lhe interessa.
+Batalha Naval - Jogo em C
 
-# Desafio Batalha Naval - Três Níveis de Complexidade
+Descrição
+Este é o jogo Batalha Naval implementado em C. O objetivo do jogo é posicionar navios em um tabuleiro 10x10 e realizar ataques, considerando habilidades especiais com áreas de efeito distintas. O projeto foi desenvolvido em diferentes níveis, onde a complexidade aumenta à medida que o jogo avança.
 
-Bem-vindo ao desafio "Batalha Naval"! Este projeto desafiará suas habilidades de programação utilizando vetores e matrizes para simular um jogo de Batalha Naval, dividido em três níveis: Novato, Aventureiro e Mestre. Em cada nível, novas funcionalidades serão adicionadas, tornando o desafio progressivamente mais complexo.
+Estrutura do Projeto
+Tabuleiro 10x10: Representação do campo de batalha onde os navios são posicionados.
 
-## 🏅 Nível Novato
+Navios: Posicionados no tabuleiro de forma horizontal, vertical e diagonal.
 
-Neste nível inicial, você implementará a lógica básica de posicionamento de navios em um tabuleiro de Batalha Naval utilizando vetores bidimensionais.
+Habilidades Especiais:
 
-### 🚩 Objetivos:
-- **Posicionamento dos Navios:** O sistema deve simular a localização de dois navios no tabuleiro, um posicionado verticalmente e outro horizontalmente.
-- **Utilização de Vetores:** Os navios serão posicionados utilizando vetores bidimensionais, com coordenadas X e Y.
-- **Exibição de Coordenadas:** O sistema deve exibir as coordenadas de cada parte dos navios no console utilizando `printf`.
+Cone: Habilidade que afeta uma área em forma de cone.
 
-### 📥 Entrada de Dados:
-- Os valores serão inseridos manualmente por meio de variáveis no código.
+Cruz: Habilidade que afeta uma área em forma de cruz.
 
-### 📤 Saída de Dados:
-- Após o posicionamento, o sistema deve exibir as coordenadas dos navios de forma clara e organizada.
+Octaedro: Habilidade que afeta uma área em forma de losango.
 
----
+Requisitos
+Este projeto foi desenvolvido utilizando a linguagem de programação C. Para compilar e executar o código, siga os seguintes passos:
 
-## 🏅 Nível Aventureiro
+Requisitos do Sistema
+Compilador C (como GCC)
 
-No nível Aventureiro, você expandirá o tabuleiro e adicionará mais navios, incluindo posicionamentos na diagonal.
+Sistema operacional: Linux ou Windows (com o ambiente adequado para compilar C)
 
-### 🆕 Diferença em relação ao Nível Novato:
-- **Tabuleiro 10x10:** O tabuleiro será expandido para uma matriz 10x10.
-- **Posicionamento de Quatro Navios:** O sistema deverá posicionar quatro navios, incluindo dois na diagonal.
-- **Exibição Completa do Tabuleiro:** O sistema exibirá toda a matriz, onde 0 indica uma posição sem navio e 3 indica uma posição ocupada.
+Como Rodar o Projeto
+Clone o repositório: git clone https://github.com/seu-usuario/batalha-naval.git
 
-### 🚩 Novas Funcionalidades:
-- **Matriz 10x10:** Implementação de uma matriz maior para representar o tabuleiro.
-- **Posicionamento de Navios na Diagonal:** Adição de navios posicionados diagonalmente.
-- **Exibição do Tabuleiro Completo:** O sistema mostrará o tabuleiro completo, indicando as posições ocupadas e livres.
+Acesse o diretório do projeto: cd batalha-naval
 
----
+Compile o código: gcc -o batalha_naval batalha_naval.c
 
-## 🏅 Nível Mestre
+Execute o programa: ./batalha_naval
 
-No nível Mestre, o desafio se intensifica com a implementação de habilidades especiais representadas por matrizes específicas no tabuleiro.
+Como Funciona
+O jogo é iniciado com o tabuleiro sendo exibido no terminal.
 
-### 🆕 Diferença em relação ao Nível Aventureiro:
-- **Habilidades Especiais:** O sistema deve definir áreas de habilidades utilizando matrizes com padrões específicos: cone, cruz e octaedro.
-- **Estruturas de Repetição Aninhadas:** Utilização de loops aninhados para percorrer e preencher as áreas afetadas pelas habilidades.
+Você pode visualizar os navios posicionados no tabuleiro.
 
-### 🚩 Novas Funcionalidades:
-- **Matrizes de Habilidades:** Implementação de três matrizes para representar habilidades especiais no tabuleiro.
-- **Padrões de Habilidade:** Criação de padrões específicos (cone, cruz, octaedro) para definir as áreas afetadas.
-- **Exibição das Áreas Atingidas:** O sistema exibirá o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas afetadas.
+São geradas três habilidades especiais com áreas de efeito:
 
-### Exemplo de Saída:
+Cone: A área de efeito se expande de cima para baixo.
 
-Exemplo e comando:
-printf("%d ",matriz[i][j]);
+Cruz: A área de efeito é centrada no meio do tabuleiro.
 
-### Exemplo de saída de habilidade em cone:
+Octaedro: A área de efeito forma um losango, centrado no meio do tabuleiro.
 
-0 0 1 0 0
+As áreas afetadas pelas habilidades são indicadas com o valor 5, enquanto os navios são representados pelo valor 3 e a água pelo valor 0.
 
-0 1 1 1 0
+Estrutura do Código
+Tabuleiro:
 
-1 1 1 1 1
+Utiliza uma matriz 10x10, onde 0 representa água e 3 representa navios.
 
-### Exemplo de saída de habilidade em octaedro:
+Habilidades:
 
-0 0 1 0 0
+Cone: Representado por uma matriz com valores que indicam a área afetada.
 
-0 1 1 1 0
+Cruz: Representado por uma matriz centrada no meio.
 
-0 0 1 0 0
+Octaedro: Representado por uma matriz no formato de losango.
 
-### Exemplo de saída de habilidade em cruz:
+Exemplo de Saída:
+O tabuleiro gerado após a execução do programa pode ser exibido como abaixo:
 
-0 0 1 0 0
+🌊 Tabuleiro Batalha Naval 🌊
 
-1 1 1 1 1
+5 0 5 0 0 0 0 0 0 0
+0 0 5 0 0 0 0 0 0 0
+5 5 5 5 5 3 5 0 0 0
+0 0 5 5 0 5 0 0 0 0
+0 0 5 0 5 0 0 0 0 0
+0 0 0 5 0 5 0 0 0 0
+0 0 5 0 0 0 5 0 0 0
+0 0 0 0 0 0 0 0 0 0
+5 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
 
-0 0 1 0 0
+5: Área afetada pelas habilidades.
 
+3: Navio.
 
+0: Água.
 
+Desenvolvedor
+Caio Rabelo
 
-
----
-
-## 📋 Requisitos Funcionais Comuns
-- **Entrada de Dados:** Os valores serão inseridos manualmente por meio de variáveis no código.
-- **Utilização de Matrizes:** Os dados devem ser estruturados de maneira eficiente utilizando matrizes.
-- **Exibição de Resultados:** Os resultados devem ser exibidos de forma clara e organizada.
-
-## 📌 Requisitos Não Funcionais Comuns
-- **Performance:** O sistema deve executar operações de forma eficiente, sem atrasos perceptíveis.
-- **Documentação:** O código deve ser bem documentado, com comentários claros sobre a função de cada parte do código.
-- **Manutenibilidade:** O código deve ser organizado e fácil de entender, facilitando futuras manutenções e expansões.
-
----
-
-Boa sorte no desenvolvimento deste desafio! Aproveite para aprimorar suas habilidades em vetores e matrizes enquanto progride pelos níveis.
-
-Equipe de Ensino - MateCheck
+GitHub: CaioRabelo813

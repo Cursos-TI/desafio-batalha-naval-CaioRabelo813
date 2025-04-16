@@ -1,40 +1,79 @@
 #include <stdio.h>
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
+#define TAMANHO_TABULEIRO 10
+#define TAMANHO_NAVIO 3
+
+// Função para inicializar o tabuleiro com 0 (água)
+void inicializarTabuleiro(int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO]) {
+    for (int i = 0; i < TAMANHO_TABULEIRO; i++) {
+        for (int j = 0; j < TAMANHO_TABULEIRO; j++) {
+            tabuleiro[i][j] = 0;
+        }
+    }
+}
+
+// Função para verificar se o navio cabe no tabuleiro
+int podePosicionarNavio(int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO], int linha, int coluna, int horizontal) {
+    if (horizontal) {
+        if (coluna + TAMANHO_NAVIO > TAMANHO_TABULEIRO) return 0; // fora dos limites
+        for (int i = 0; i < TAMANHO_NAVIO; i++) {
+            if (tabuleiro[linha][coluna + i] != 0) return 0; // sobreposição
+        }
+    } else {
+        if (linha + TAMANHO_NAVIO > TAMANHO_TABULEIRO) return 0;
+        for (int i = 0; i < TAMANHO_NAVIO; i++) {
+            if (tabuleiro[linha + i][coluna] != 0) return 0;
+        }
+    }
+    return 1;
+}
+
+// Função para posicionar o navio no tabuleiro
+void posicionarNavio(int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO], int linha, int coluna, int horizontal) {
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        if (horizontal) {
+            tabuleiro[linha][coluna + i] = 3; // 3 representa navio
+        } else {
+            tabuleiro[linha + i][coluna] = 3;
+        }
+    }
+}
+
+// Função para exibir o tabuleiro no terminal
+void exibirTabuleiro(int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO]) {
+    printf("\n🌊 Tabuleiro Batalha Naval 🌊\n\n");
+    for (int i = 0; i < TAMANHO_TABULEIRO; i++) {
+        for (int j = 0; j < TAMANHO_TABULEIRO; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+}
 
 int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO];
 
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+    inicializarTabuleiro(tabuleiro);
 
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
+    // Coordenadas definidas direto no código (como solicitado)
+    int linhaHorizontal = 2, colunaHorizontal = 4;
+    int linhaVertical = 5, colunaVertical = 6;
 
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
-    
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
+    // Verifica e posiciona navio horizontal
+    if (podePosicionarNavio(tabuleiro, linhaHorizontal, colunaHorizontal, 1)) {
+        posicionarNavio(tabuleiro, linhaHorizontal, colunaHorizontal, 1);
+    } else {
+        printf("Erro ao posicionar navio horizontal. 🚫\n");
+    }
 
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
+    // Verifica e posiciona navio vertical
+    if (podePosicionarNavio(tabuleiro, linhaVertical, colunaVertical, 0)) {
+        posicionarNavio(tabuleiro, linhaVertical, colunaVertical, 0);
+    } else {
+        printf("Erro ao posicionar navio vertical. 🚫\n");
+    }
+
+    exibirTabuleiro(tabuleiro);
 
     return 0;
 }

@@ -1,89 +1,122 @@
-Batalha Naval - Jogo em C
+🚢💥 Desafio Batalha Naval em C 💻🌊
 
-Descrição
-Este é o jogo Batalha Naval implementado em C. O objetivo do jogo é posicionar navios em um tabuleiro 10x10 e realizar ataques, considerando habilidades especiais com áreas de efeito distintas. O projeto foi desenvolvido em diferentes níveis, onde a complexidade aumenta à medida que o jogo avança.
+Este projeto foi desenvolvido como parte dos desafios da disciplina de Pensamento Computacional. Nele, simulamos o clássico jogo Batalha Naval, utilizando linguagem C, com foco em vetores, matrizes, estruturas de repetição e condicionais.
 
-Estrutura do Projeto
-Tabuleiro 10x10: Representação do campo de batalha onde os navios são posicionados.
+A proposta foi dividida em três níveis de dificuldade: Novato, Aventureiro e Mestre, onde cada etapa adiciona mais complexidade ao código, até chegar à implementação de habilidades especiais com áreas de efeito.
 
-Navios: Posicionados no tabuleiro de forma horizontal, vertical e diagonal.
+🧭 Nível Novato - Comparação de Cartas
 
-Habilidades Especiais:
+🎯 Objetivo:
 
-Cone: Habilidade que afeta uma área em forma de cone.
+Criar um programa que represente um tabuleiro de batalha naval 10x10, posicione navios e imprima esse tabuleiro de forma organizada na tela.
 
-Cruz: Habilidade que afeta uma área em forma de cruz.
+📌 Habilidades trabalhadas:
 
-Octaedro: Habilidade que afeta uma área em forma de losango.
+Declaração e uso de matrizes 2D
 
-Requisitos
-Este projeto foi desenvolvido utilizando a linguagem de programação C. Para compilar e executar o código, siga os seguintes passos:
+Preenchimento com valores fixos
 
-Requisitos do Sistema
-Compilador C (como GCC)
+Impressão de matriz com printf e for
 
-Sistema operacional: Linux ou Windows (com o ambiente adequado para compilar C)
+Representação gráfica do jogo com valores inteiros
 
-Como Rodar o Projeto
-Clone o repositório: git clone https://github.com/seu-usuario/batalha-naval.git
+📋 Exemplo de representação no tabuleiro:
 
-Acesse o diretório do projeto: cd batalha-naval
+0: água 🌊
 
-Compile o código: gcc -o batalha_naval batalha_naval.c
+3: navio 🚢
 
-Execute o programa: ./batalha_naval
+🧗 Nível Aventureiro - Posicionamento com lógica
 
-Como Funciona
-O jogo é iniciado com o tabuleiro sendo exibido no terminal.
+🎯 Objetivo:
 
-Você pode visualizar os navios posicionados no tabuleiro.
+Adicionar regras ao posicionamento dos navios no tabuleiro, garantindo que não se sobreponham e que dois deles sejam posicionados na diagonal.
 
-São geradas três habilidades especiais com áreas de efeito:
+📌 Habilidades trabalhadas:
 
-Cone: A área de efeito se expande de cima para baixo.
+Condições de controle para evitar sobreposição de navios
 
-Cruz: A área de efeito é centrada no meio do tabuleiro.
+Posicionamento em linha reta e diagonal
 
-Octaedro: A área de efeito forma um losango, centrado no meio do tabuleiro.
+Uso de estruturas if e for para checagem e preenchimento
 
-As áreas afetadas pelas habilidades são indicadas com o valor 5, enquanto os navios são representados pelo valor 3 e a água pelo valor 0.
+Validação de posição com limites da matriz
 
-Estrutura do Código
-Tabuleiro:
+🧠 Desafio adicional:
+Garantir o posicionamento de quatro navios, sendo dois deles diagonais, sem invadir o espaço dos outros.
 
-Utiliza uma matriz 10x10, onde 0 representa água e 3 representa navios.
 
-Habilidades:
+🧙 Nível Mestre - Habilidades Especiais com Área de Efeito
 
-Cone: Representado por uma matriz com valores que indicam a área afetada.
+🎯 Objetivo:
 
-Cruz: Representado por uma matriz centrada no meio.
+Criar e aplicar três habilidades especiais (Cone, Cruz e Octaedro) que afetam o tabuleiro com áreas específicas, representadas por uma nova matriz sobreposta ao tabuleiro principal.
 
-Octaedro: Representado por uma matriz no formato de losango.
+📌 Habilidades criadas:
 
-Exemplo de Saída:
-O tabuleiro gerado após a execução do programa pode ser exibido como abaixo:
+🌀 Cone (expande de cima para baixo)
 
-🌊 Tabuleiro Batalha Naval 🌊
+➕ Cruz (horizontal e vertical, com origem no centro)
 
-5 0 5 0 0 0 0 0 0 0
-0 0 5 0 0 0 0 0 0 0
-5 5 5 5 5 3 5 0 0 0
-0 0 5 5 0 5 0 0 0 0
-0 0 5 0 5 0 0 0 0 0
-0 0 0 5 0 5 0 0 0 0
-0 0 5 0 0 0 5 0 0 0
-0 0 0 0 0 0 0 0 0 0
-5 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0
+🔷 Octaedro (formato de losango)
 
-5: Área afetada pelas habilidades.
+📌 Como funciona:
 
-3: Navio.
+As áreas afetadas são representadas com o valor 5 💥
 
-0: Água.
+A habilidade é aplicada ao tabuleiro a partir de um ponto de origem
 
-Desenvolvedor
-Caio Rabelo
+O código garante que a área não ultrapasse os limites do tabuleiro
 
-GitHub: CaioRabelo813
+🧩 Exemplo de elementos no tabuleiro final:
+
+0: água 🌊
+
+3: navio 🚢
+
+5: área afetada por habilidade especial 💥
+
+🧪 Como Testar o Programa
+Para rodar esse projeto com sucesso no seu computador, siga estes passos:
+
+Clone o repositório no seu ambiente de desenvolvimento:
+Exemplo para GitHub:
+git clone https://github.com/caio-rabelo/batalha-naval.git
+
+Entre na pasta do projeto:
+cd batalha-naval
+
+Compile o código com um compilador C:
+Com o GCC:
+gcc batalha_naval.c -o batalha_naval
+
+Execute o programa no terminal:
+./batalha_naval
+
+✅ O que você verá no terminal:
+
+Um tabuleiro 10x10 com água (0), navios (3) e áreas afetadas (5)
+
+As três habilidades serão aplicadas e você verá seus efeitos no tabuleiro
+
+🛠️ Dicas:
+
+Você pode mudar os pontos de origem das habilidades direto no código, alterando as variáveis de linha e coluna.
+
+O código está comentado e separado por função para facilitar a leitura e alteração.
+
+No Linux, basta instalar o GCC com sudo apt install gcc.
+
+No Windows, use o MinGW ou o terminal do WSL.
+
+No VS Code, você pode usar a extensão de C/C++ para compilar direto na interface.
+
+📝 Nota de Esclarecimento ao Professor
+
+Todo o desenvolvimento foi realizado por mim, Caio Rabelo, como parte do aprendizado da disciplina.
+Me dediquei a entender e implementar cada funcionalidade com lógica própria e apoio dos conteúdos vistos em aula.
+A organização do código e a documentação aqui presente foram feitas com muito carinho, seguindo os princípios de clareza e responsabilidade.
+
+Agradeço pela oportunidade de colocar em prática os conceitos de programação e por acompanhar minha evolução até aqui.
+Espero que este projeto reflita bem o que eu aprendi! 😊
+Aberto a correções!!!
